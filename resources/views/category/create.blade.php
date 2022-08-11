@@ -4,7 +4,14 @@
 
 @section('content')
     <div class="row">
+
         <div class="col-md-6 m-auto">
+            @if (session('status'))
+                <div class="bg-success p-1 text-white">
+                    {{session('status')}}
+                </div>
+            @endif
+
             <form action="{{route('category.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -16,15 +23,7 @@
                       <small class='text-danger'>{{$message}}</small>
                   @enderror
                 </div>
-                <div class="form-group">
-                  <label for="category_slug">Category Slug</label>
-                  <input name="category_slug" type="text" class="form-control @error('category_slug')
-                      is-invalid
-                  @enderror" id="category_slug" placeholder="Enter Your Category Slug">
-                  @error('category_slug')
-                      <small class="text-danger">{{$message}}</small>
-                  @enderror
-                </div>
+
                 <div class="form-check mb-3">
                   <input name="is_active" type="checkbox" class="form-check-input" id="active">
                   <label class="form-check-label" for="active">Active</label>
