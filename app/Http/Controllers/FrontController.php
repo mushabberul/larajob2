@@ -11,7 +11,7 @@ class FrontController extends Controller
     {
        $users = User::all();
 
-       return view('welcome',['users' => $users]);
+       return view('home',['users' => $users]);
 
     }
 }
