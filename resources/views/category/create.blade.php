@@ -9,11 +9,21 @@
                 @csrf
                 <div class="form-group">
                   <label for="category-name">Category Name</label>
-                  <input name="category_name" type="text" class="form-control" id="category-name" placeholder="Enter Category Name">
+                  <input name="category_name" type="text" class="form-control @error('category_name')
+                      is-invalid
+                  @enderror" id="category-name" placeholder="Enter Category Name">
+                  @error('category_name')
+                      <small class='text-danger'>{{$message}}</small>
+                  @enderror
                 </div>
                 <div class="form-group">
                   <label for="category_slug">Category Slug</label>
-                  <input name="category_slug" type="text" class="form-control" id="category_slug" placeholder="Enter Your Category Slug">
+                  <input name="category_slug" type="text" class="form-control @error('category_slug')
+                      is-invalid
+                  @enderror" id="category_slug" placeholder="Enter Your Category Slug">
+                  @error('category_slug')
+                      <small class="text-danger">{{$message}}</small>
+                  @enderror
                 </div>
                 <div class="form-check mb-3">
                   <input name="is_active" type="checkbox" class="form-check-input" id="active">
