@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -35,6 +36,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_name'=>'required|string|alpha',
+            'category_slug'=>'required|string|alpha',
+            'is_active'=>'nullable'
+        ]);
+        dd($request->all());
         Category::create([
             'name' => $request->category_name,
             'slug' => $request->category_slug,
