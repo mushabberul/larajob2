@@ -16,7 +16,7 @@
                 @csrf
                 <div class="form-group">
                   <label for="category-name">Category Name</label>
-                  <input name="category_name" type="text" class="form-control @error('category_name')
+                  <input name="category_name"  value="{{old('category_name')}}" type="text" class="form-control @error('category_name')
                       is-invalid
                   @enderror" id="category-name" placeholder="Enter Category Name">
                   @error('category_name')
