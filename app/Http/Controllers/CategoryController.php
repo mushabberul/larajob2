@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -34,7 +35,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return(dd($request->all()));
+        Category::create([
+            'name' => $request->category_name,
+            'slug' => $request->category_slug,
+            'is_active' => $request->filled('is_active'),
+        ]);
+
+        return back();
     }
 
     /**

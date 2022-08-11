@@ -16,7 +16,7 @@
                   <input name="category_slug" type="text" class="form-control" id="category_slug" placeholder="Enter Your Category Slug">
                 </div>
                 <div class="form-check mb-3">
-                  <input value="10" name="isActive" type="checkbox" class="form-check-input" id="active">
+                  <input name="is_active" type="checkbox" class="form-check-input" id="active">
                   <label class="form-check-label" for="active">Active</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
