@@ -3,8 +3,10 @@
 @section('title','Create Sub Category')
 
 @section('content')
-    <div class="row">
         <div class="col-md-6 m-auto">
+            <div class="col-md-6">
+                <a class="btn bg-success text-white" href="{{route('subcategory.index')}}">Sub Category List</a>
+            </div>
             @if (session('status'))
                 <div class="bg-success text-white p-1 mb-2">
                     {{session('status')}}
@@ -37,6 +39,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+
         </div>
-    </div>
+
 @endsection

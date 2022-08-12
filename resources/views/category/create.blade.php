@@ -3,7 +3,7 @@
 @section('title','Create Category')
 
 @section('content')
-    <div class="row">
+
 
         <div class="col-md-6 m-auto">
             @if (session('status'))
@@ -31,5 +31,5 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>
-    </div>
+
 @endsection

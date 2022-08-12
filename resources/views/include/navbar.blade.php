@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('subcategory.create')}}">Sub Create Category</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('subcategory.index')}}">Sub  Category Lists</a>
+          </li>
 
 
         </ul>

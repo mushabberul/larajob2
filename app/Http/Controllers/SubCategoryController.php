@@ -18,7 +18,8 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $subcategories = SubCategory::get(['id','category_id','name','created_at']);
+        return view('subcategory.index',compact('subcategories'));
     }
 
     /**

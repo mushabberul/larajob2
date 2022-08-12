@@ -12,7 +12,10 @@
   <body>
     @include('include.navbar')
     <div class="container">
-        @yield('content')
+        <div class="row">
+
+            @yield('content')
+        </div>
     </div>
 
     @include('include.script')
