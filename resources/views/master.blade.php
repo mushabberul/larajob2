@@ -13,8 +13,15 @@
     @include('include.navbar')
     <div class="container">
         <div class="row">
-
+            <div class="col-md-12">
+            @if (session('status'))
+                <div class="bg-success text-white p-1 mb-2">
+                    {{session('status')}}
+                </div>
+            @endif
+            </div>
             @yield('content')
+
         </div>
     </div>
 

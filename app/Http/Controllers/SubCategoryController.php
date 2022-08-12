@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\SubcategoryStoreRequest;
+use App\Http\Requests\SubcategoryUpdateRequest;
 
 class SubCategoryController extends Controller
 {
@@ -50,7 +51,7 @@ class SubCategoryController extends Controller
             'is_active' => $request->filled('is_active'),
         ]);
         Session::flash('status','Sub Category Created Successfully');
-        return back();
+        return  redirect()->route('subcategory.index');
     }
 
     /**
@@ -61,7 +62,11 @@ class SubCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
+        return('show');
+
+        // $subcategory = SubCategory::find($id);
+        // return view('subcategory.show',compact('subcategory'));
     }
 
     /**
@@ -85,9 +90,18 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubcategoryUpdateRequest $request, $id)
     {
-        //
+        $subcategory = SubCategory::find($id);
+
+        $subcategory->update([
+            'category_id' => $request->category_id,
+            'name' => $request->sub_category_name,
+            'slug' => Str::slug( $request->sub_category_name),
+            'is_active' => $request->filled('is_active'),
+        ]);
+        Session::flash('status','Sub Category Updated Successfully');
+        return redirect()->route('subcategory.index');
     }
 
     /**
@@ -98,6 +112,8 @@ class SubCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        return('Destry');
+        // SubCategory::find($id)->delete();
     }
 }

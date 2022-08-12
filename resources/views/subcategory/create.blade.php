@@ -7,11 +7,7 @@
             <div class="col-md-6">
                 <a class="btn bg-success text-white" href="{{route('subcategory.index')}}">Sub Category List</a>
             </div>
-            @if (session('status'))
-                <div class="bg-success text-white p-1 mb-2">
-                    {{session('status')}}
-                </div>
-            @endif
+
             <form action="{{route('subcategory.store')}}" method="POST">
                 @csrf
                 <div class="form-group">

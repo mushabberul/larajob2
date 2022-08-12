@@ -12,7 +12,7 @@
                     {{session('status')}}
                 </div>
             @endif
-            <form action="{{route('subcategory.update')}}" method="POST">
+            <form action="{{route('subcategory.update',['subcategory' => $subcategories->id])}}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
