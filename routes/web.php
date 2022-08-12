@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'UserAllData'])->name('home');
 Route::resource('/category', CategoryController::class);
+Route::resource('/subcategory',SubCategoryController::class);
