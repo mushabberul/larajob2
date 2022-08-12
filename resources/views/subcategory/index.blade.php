@@ -3,7 +3,7 @@
 @section('title','Sub Category Index')
 
 @section('content')
-<div class="col-md-6 m-auto">
+<div class="col-md-8 m-auto">
     <table class="table">
         <thead>
         <tr>
@@ -11,6 +11,7 @@
             <th scope="col">Category Name</th>
             <th scope="col">Sub Cateogry Name</th>
             <th scope="col">Created </th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <td>{{$subcategory->category->name}}</td>
                 <td>{{$subcategory->name}}</td>
                 <td>{{$subcategory->created_at->diffForHumans()}}</td>
+                <td><a href="{{route('subcategory.edit',['subcategory' => $subcategory->id])}}">Edit</a></td>
             </tr>
             @endforeach
 

@@ -72,7 +72,10 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::get(['id','name']);
+        $subcategories = SubCategory::find($id);
+        // dd($subcategories);
+        return view('subcategory.edit',compact('categories','subcategories'));
     }
 
     /**
