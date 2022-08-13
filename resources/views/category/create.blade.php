@@ -6,11 +6,7 @@
 
 
         <div class="col-md-6 m-auto">
-            @if (session('status'))
-                <div class="bg-success p-1 text-white">
-                    {{session('status')}}
-                </div>
-            @endif
+
 
             <form action="{{route('category.store')}}" method="POST">
                 @csrf

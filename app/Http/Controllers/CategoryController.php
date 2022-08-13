@@ -6,8 +6,9 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Validated;
-use App\Http\Requests\CategoryStoreRequest;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 
 class CategoryController extends Controller
 {
@@ -18,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::get(['id','name','created_at']);
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -46,7 +48,7 @@ class CategoryController extends Controller
             'is_active' => $request->filled('is_active'),
         ]);
         Session::flash('status','Category Created Successfully');
-        return back();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -68,7 +70,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -78,9 +82,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
-        //
+        dd($request->all());
+        $category = Category::find($id);
+        $category->update([
+            'name'=>$request->category_name,
+            'slug'=> Str::slug($request->category_name),
+            'is_active'=>$request->filled('is_active'),
+        ]);
+        Session::flash('status','Category Updated Successfully');
+
+        return redirect()->route('category.index');
     }
 
     /**
