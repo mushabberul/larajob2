@@ -59,7 +59,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'show';
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryUpdateRequest $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $category = Category::find($id);
         $category->update([
             'name'=>$request->category_name,
@@ -104,6 +104,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        Session::flash('status','Category has deleted successfully');
+        return redirect()->route('category.index');
+
     }
 }

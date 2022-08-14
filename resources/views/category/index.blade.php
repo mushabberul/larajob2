@@ -20,6 +20,14 @@
                     <td>{{$category->name}}</td>
                     <td>{{$category->created_at->diffForHumans()}}</td>
                     <td><a class="btn btn-info" href="{{route('category.edit',['category' => $category->id])}}">Edit</a></td>
+                    <td>
+                        {{-- <a class="btn btn-danger" href="{{route('category.destroy',['category' => $category->id])}}">Delete</a> --}}
+                        <form action="{{route('category.destroy',['category' => $category->id])}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                   </tr>
                 @endforeach
 

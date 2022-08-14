@@ -24,8 +24,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> 'required',
-            'slug'=> 'required',
+            'category_name'=> 'required',
             'is_active'=> 'nullable'
         ];
     }

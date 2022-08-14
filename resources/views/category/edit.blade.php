@@ -7,8 +7,6 @@
             @method('PUT')
             @csrf
 
-
-
             <div class="form-group">
               <label for="category-name">Category Name</label>
               <input  value="{{$category->name}}" type="text" name="category_name" class="form-control" id="category-name">
